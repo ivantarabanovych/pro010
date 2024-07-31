@@ -1,10 +1,18 @@
-function sum(a, b, callback) {
-    const result = a + b;
-    callback(result);
-}
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const isSuccess = true; //true or false
+        if (isSuccess) {
+            resolve('Promise resolved!');
+        } else {
+            reject('Promise rejected!');
+        }
+    }, 2000);
+});
 
-function display(result){
-    console.log(`Sum two number: ${result}`)
-}
-
-sum (5, 3, display);
+myPromise
+    .then((message) => {
+        console.log(message); 
+    })
+    .catch((error) => {
+        console.error(error); 
+    });
